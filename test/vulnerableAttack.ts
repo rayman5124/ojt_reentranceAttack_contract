@@ -8,7 +8,7 @@ describe('Deploy contracts', function () {
     // make attacker's balance to 50 ether
     await attacker.sendTransaction({ to: burner.address, value: ethers.utils.parseEther('9900') });
 
-    const BankFactory = await ethers.getContractFactory('VernerableBank', deployer);
+    const BankFactory = await ethers.getContractFactory('VulnerableBank', deployer);
     const bankContract = await BankFactory.deploy();
 
     await bankContract.deposit({ value: ethers.utils.parseEther('1000') });

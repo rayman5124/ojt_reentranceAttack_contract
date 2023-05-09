@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/utils/Arrays.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "hardhat/console.sol";
 
-contract VernerableBank {
+contract VulnerableBank {
     using Address for address payable;
 
     mapping(address => uint256) public balanceOf;
