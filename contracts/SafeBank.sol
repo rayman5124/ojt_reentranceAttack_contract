@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/utils/Arrays.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
 import "hardhat/console.sol";
 
 contract SafeBank {
@@ -39,7 +37,7 @@ contract SafeBank {
         console.log("entered");
         uint256 depositedAmount = balanceOf[msg.sender];
         (bool success, ) = msg.sender.call{value: depositedAmount}("");
-        require(success, "withdraw failed");
+        require(success, "withdrawal failed");
         balanceOf[msg.sender] = 0;
     }
 }

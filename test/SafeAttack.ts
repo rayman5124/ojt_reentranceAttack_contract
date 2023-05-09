@@ -60,7 +60,7 @@ describe('Deploy contracts', function () {
 
       await expect(
         attackerContract.attack({ value: ethers.utils.parseEther('50') })
-      ).to.be.revertedWith('withdrwal failed');
+      ).to.be.revertedWith('withdrawal failed');
 
       console.log('');
       console.log('*** After ***');
