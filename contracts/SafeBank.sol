@@ -26,20 +26,20 @@ contract SafeBank {
 
     // 1 -> true
     // 2 -> false
-    // uint256 private _entered = 2;
+    uint256 private _entered = 2;
 
-    // modifier _preventReEntrance() {
-    //     require(_entered == 2);
-    //     _entered = 1;
-    //     _;
-    //     _entered = 2;
-    // }
+    modifier preventReEntrance() {
+        require(_entered == 2);
+        _entered = 1;
+        _;
+        _entered = 2;
+    }
 
-    // function withdraw() external _preventReEntrance {
-    //     console.log("entered");
-    //     uint256 depositedAmount = balanceOf[msg.sender];
-    //     (bool success, ) = msg.sender.call{value: depositedAmount}("");
-    //     require(success, "withdraw failed");
-    //     balanceOf[msg.sender] = 0;
-    // }
+    function withdraw() external preventReEntrance {
+        console.log("entered");
+        uint256 depositedAmount = balanceOf[msg.sender];
+        (bool success, ) = msg.sender.call{value: depositedAmount}("");
+        require(success, "withdraw failed");
+        balanceOf[msg.sender] = 0;
+    }
 }
