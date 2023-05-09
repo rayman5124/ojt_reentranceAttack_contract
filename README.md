@@ -1,4 +1,4 @@
 ```shell
-npx hardhat test ./test/SafeBank.sol
-npx hardhat test ./test/VernerableAttack
+npx hardhat test ./test/SafeAttack.ts
+npx hardhat test ./test/VernerableAttack.ts
 ```
