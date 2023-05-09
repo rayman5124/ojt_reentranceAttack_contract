@@ -13,14 +13,14 @@ contract SafeBank {
     }
 
     // ==================== 1. Checks-Effects-Interactions 패턴 ====================
-    function withdraw() external {
-        uint256 currentBalance = balanceOf[msg.sender];
-        console.log("current balance of %s : %s ", msg.sender, currentBalance);
-        require(currentBalance != 0, "not enough balance to withdraw"); // check 여기 메세지는 출력아 안된다.
-        balanceOf[msg.sender] = 0; // effects to the state variables
-        (bool success, ) = msg.sender.call{value: currentBalance}("");
-        require(success, "withdrwal failed");
-    }
+    // function withdraw() external {
+    //     uint256 currentBalance = balanceOf[msg.sender];
+    //     console.log("current balance of %s : %s ", msg.sender, currentBalance);
+    //     require(currentBalance != 0, "not enough balance to withdraw"); // check 여기 메세지는 출력아 안된다.
+    //     balanceOf[msg.sender] = 0; // effects to the state variables
+    //     (bool success, ) = msg.sender.call{value: currentBalance}("");
+    //     require(success, "withdrwal failed");
+    // }
 
     // ==================== 2. prevent-reentrance modifier 사용 ====================
 
